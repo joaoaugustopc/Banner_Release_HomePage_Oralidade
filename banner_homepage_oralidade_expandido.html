@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Banner — Homepage Oralidade v5.0</title>
+<style>
+  :root {
+    --bg: #4A4A4A;
+    --bg-card: #3D3D3D;
+    --bg-card-soft: #545454;
+    --yellow: #FFE600;
+    --white: #FFFFFF;
+    --text: #D9D9D9;
+    --text-muted: #A8A8A8;
+    --dark: #1A1A1A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #2a2a2a;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner {
+    width: 100%;
+    max-width: 760px;
+    background: var(--bg);
+    color: var(--white);
+    padding: 40px 44px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== TOPO ===== */
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 3px;
+  }
+
+  .title {
+    color: var(--yellow);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 14px 0 4px;
+  }
+
+  .subtitle {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .lead {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 380px;
+  }
+
+  .top-cover {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top-cover::before {
+    content: "";
+    position: absolute;
+    inset: 14px -8px -10px 34px;
+    background: var(--yellow);
+    border-radius: 8px;
+    opacity: 0.95;
+  }
+
+  .top-cover img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.28);
+  }
+
+  /* Divisor amarelo */
+  .divider {
+    height: 2px;
+    background: var(--yellow);
+    margin: 28px 0;
+    width: 100%;
+  }
+
+  .divider-soft {
+    height: 1px;
+    background: var(--yellow);
+    opacity: 0.4;
+    margin: 28px 0;
+    width: 100%;
+  }
+
+  /* ===== TÍTULOS DE SEÇÃO ===== */
+  .section-label {
+    color: var(--yellow);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    color: var(--yellow);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* ===== MEIO — 3 ETAPAS ===== */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .step {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 18px 16px;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
+    color: var(--text);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* ===== PLACEHOLDER — EXPLICAÇÃO GERAÇÃO AUTOMÁTICA ===== */
+  .explain {
+    background: var(--bg-card);
+    border-left: 4px solid var(--yellow);
+    border-radius: 6px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .explain-tag {
+    color: var(--yellow);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+  }
+
+  .explain-title {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .explain-text {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .explain-visual {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255, 230, 0, 0.22);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .explain-visual img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .review-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .review-copy {
+    max-width: 620px;
+    margin-bottom: 18px;
+  }
+
+  .review-copy .section-label {
+    margin-bottom: 10px;
+  }
+
+  .review-copy .section-title {
+    margin-bottom: 10px;
+  }
+
+  .review-copy p {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .review-image {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255, 230, 0, 0.22);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .review-image img {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+  }
+
+  /* ===== O QUE MUDA PRA VOCÊ — BENEFÍCIOS ===== */
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .benefit {
+    background: var(--bg-card);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    padding: 16px 14px;
+  }
+
+  .benefit-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: rgba(255, 230, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .benefit-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--yellow);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .benefit-title {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .benefit-desc {
+    color: var(--text);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* ===== LINHA DO TEMPO ===== */
+  .timeline-wrap {
+    position: relative;
+    padding: 20px 0 8px;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 36px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: var(--yellow);
+    opacity: 0.5;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    position: relative;
+  }
+
+  .timeline-step {
+    text-align: center;
+  }
+
+  .timeline-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0 auto 10px;
+    border: 4px solid var(--bg);
+  }
+
+  .timeline-title {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .timeline-desc {
+    color: var(--text);
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  /* ===== OBJETIVOS ===== */
+  .objectives-line {
+    height: 1px;
+    background: var(--yellow);
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+
+  .objectives-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+
+  .objectives-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .check {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* ===== RODAPÉ ===== */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 10px;
+    color: var(--text);
+  }
+
+  .footer .brand {
+    color: var(--yellow);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 720px) {
+    .banner {
+      padding: 28px 24px;
+    }
+
+    .top,
+    .explain,
+    .steps,
+    .benefits,
+    .timeline,
+    .objectives-list {
+      grid-template-columns: 1fr;
+    }
+
+    .top-cover {
+      max-width: 200px;
+    }
+
+    .lead {
+      max-width: none;
+    }
+
+    .timeline-line {
+      display: none;
+    }
+
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+
+  <!-- ===== TOPO ===== -->
+  <div class="top">
+    <div>
+      <span class="badge">NOVO</span>
+      <h1 class="title">Fluência</h1>
+      <p class="subtitle">Geração inicial de itens</p>
+      <p class="lead">Uma base inteligente para você refinar e construir seus cadernos.</p>
+    </div>
+
+    <div class="top-cover">
+      <img src="Capa.png" alt="Capa da Homepage Oralidade">
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== COMO FUNCIONA — 3 ETAPAS ===== -->
+  <p class="section-label">Fluxo de elaboração</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <p class="step-title">Configurar</p>
+      <p class="step-desc">Definir os requisitos do item</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <p class="step-title">Gerar</p>
+      <p class="step-desc">Montar automaticamente uma primeira versão do quadro</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <p class="step-title">Revisar</p>
+      <p class="step-desc">Buscar, substituir ou ajustar a ordem das palavras. </p>
+    </div>
+  </div>
+
+  <div class="divider-soft"></div>
+
+  <!-- ===== EM DETALHE — CONFIGURAÇÃO DA FERRAMENTA ===== -->
+  <div class="explain">
+    <div>
+      <p class="explain-tag">GERAÇÃO</p>
+      <p class="explain-title">Como configurar a ferramenta</p>
+      <p class="explain-text">
+        Ao acessar a funcionalidade, você define os parâmetros que orientam a montagem do quadro,
+        como etapa, variações linguísticas e quantidade de palavras para cada característica. A partir dessas
+        escolhas, a ferramenta organiza uma base inicial para revisão e uso.
+      </p>
+    </div>
+    <div class="explain-visual">
+      <img src="Botão da funcionalidade.png" alt="Botão da funcionalidade">
+    </div>
+  </div>
+
+  <div class="divider-soft"></div>
+
+  <div class="review-card">
+    <div class="review-copy">
+      <p class="section-label">Revisão e ajuste</p>
+      <h2 class="section-title">Refinamento do quadro</h2>
+      <p>
+        Depois da geração inicial, o elaborador pode revisar o quadro e substituir palavras que
+        não atendam à proposta desejada. Nesse exemplo, uma palavra é removida, novas opções com
+        as características selecionadas são buscadas e a escolhida é incluída no quadro final.
+      </p>
+    </div>
+    <div class="review-image">
+      <img src="Inserir um título (2).png" alt="Processo de revisão e substituição de palavras no quadro">
+    </div>
+  </div>
+
+  <div class="divider-soft"></div>
+
+  <!-- ===== O QUE MUDA PRA VOCÊ — BENEFÍCIOS ===== -->
+  <p class="section-label">O que muda para você</p>
+
+  <div class="benefits">
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <p class="benefit-title">Agilidade</p>
+      <p class="benefit-desc">Reduz horas de trabalho manual a poucos segundos de processamento.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
+      <p class="benefit-title">Precisão</p>
+      <p class="benefit-desc">Quadros gerados conforme o perfil linguístico definido na configuração.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+      </div>
+      <p class="benefit-title">Flexibilidade</p>
+      <p class="benefit-desc">Refine e personalize o resultado.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== OBJETIVOS ===== -->
+  <h2 class="section-title">Atualizações</h2>
+  <div class="objectives-line"></div>
+
+  <ul class="objectives-list">
+    <!-- <li>
+      <span class="check">✓</span>
+      <span>Salvamento do quadro após atualização de tela</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span> Opção de limpar o quadro</span>
+    </li> -->
+    <li>
+      <span class="check">✓</span>
+      <span> Atualização do significado das palavras </span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span>Atualização das frequências para o contexto infantil</span>
+    </li>
+  </ul>
+
+  <!-- ===== RODAPÉ ===== -->
+</div>
+
+</body>
+</html>
