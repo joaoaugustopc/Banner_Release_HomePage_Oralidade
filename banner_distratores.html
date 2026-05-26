@@ -673,6 +673,45 @@
     line-height: 1.5;
   }
 
+  /* ===== OBJETIVOS ===== */
+  .objectives-line {
+    height: 1px;
+    background: var(--yellow);
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+
+  .objectives-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+
+  .objectives-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .check {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
   /* ===== RODAPÉ ===== */
   .footer {
     display: flex;
@@ -693,7 +732,7 @@
 
   @media (max-width: 720px) {
     .banner { padding: 28px 24px; }
-    .top, .steps, .benefits { grid-template-columns: 1fr; }
+    .top, .steps, .benefits, .objectives-list { grid-template-columns: 1fr; }
     .top-cover { max-width: 200px; }
     .lead { max-width: none; }
     .explain-top, .explain-two-col { grid-template-columns: 1fr; }
@@ -778,7 +817,7 @@
           Clique com o botão direito no documento Word e acesse o submenu
           <strong style="color:var(--white)">Geração de Itens (AI)</strong>.
           Selecione <strong style="color:var(--white)">Gerar Item</strong> para abrir o formulário de geração
-          e, em seguida, selecionar a habilidade D10-13EF e prosseguir para a seleção de distratores. Se quiser palavras com características específicas que não foram retornadas nas listas, faça uma busca direcionada.
+          e, em seguida, selecionar a habilidade D10-13EF e prosseguir para a seleção de distratores.
         </p>
       </div>
 
@@ -832,23 +871,41 @@
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       </div>
       <p class="benefit-title">Escolha orientada</p>
-      <p class="benefit-desc">Sugestão de distratores plausíveis.</p>
+      <p class="benefit-desc">Distratores organizados por grupos de características linguísticas relevantes para a habilidade.</p>
     </div>
     <div class="benefit">
       <div class="benefit-icon">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </div>
       <p class="benefit-title">Busca direcionada</p>
-      <p class="benefit-desc">Filtros para encontrar exatamente o que precisa.</p>
+      <p class="benefit-desc">Filtre por número de sílabas, frequência, canonicidade, grafema ou fonema para encontrar exatamente o que precisa.</p>
     </div>
     <div class="benefit">
       <div class="benefit-icon">
         <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
       </div>
       <p class="benefit-title">Confirmação ágil</p>
-      <p class="benefit-desc">Item pronto e formatado de forma rápida</p>
+      <p class="benefit-desc">Painel lateral mostra os 3 distratores selecionados em tempo real. Confirme ou ajuste antes de finalizar.</p>
     </div>
   </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== ATUALIZAÇÕES ===== -->
+  <h2 class="section-title">Atualizações</h2>
+  <div class="objectives-line"></div>
+
+  <ul class="objectives-list">
+    <li>
+      <span class="check">✓</span>
+      <span>Nova funcionalidade: seleção de distratores para itens de leitura de palavras</span>
+    </li>
+    <li>
+      <span class="check">✓</span>
+      <span>Palavras organizadas em grupos por características linguísticas</span>
+    </li>
+  </ul>
+
 </div>
 
 </body>
